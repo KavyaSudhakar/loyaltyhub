@@ -34,6 +34,12 @@ gem 'sassc-rails', '~> 2.0'
 
 gem 'sass-rails', '~> 6.0'
 
+gem 'kaminari'
+
+gem 'whenever', require: false
+
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

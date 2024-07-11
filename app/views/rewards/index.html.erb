@@ -1,0 +1,49 @@
+<h1>Rewards</h1>
+
+<h2>Claimed Rewards</h2>
+<% if @claimed_rewards.any? %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Reward Type</th>
+          <th>Claimed On</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @claimed_rewards.each do |reward| %>
+          <tr>
+            <td><%= reward.reward_type.reward_type %></td>
+            <td><%= reward.created_at.strftime('%Y-%m-%d') %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p>No rewards claimed yet.</p>
+<% end %>
+
+<h2>Available Rewards</h2>
+<% if @available_rewards.any? %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Reward Type</th>
+          <th>Criteria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @available_rewards.each do |reward_type| %>
+          <tr>
+            <td><%= reward_type.reward_type %></td>
+            <td><%= reward_type.criteria %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p>No rewards available at the moment.</p>
+<% end %>

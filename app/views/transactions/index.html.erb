@@ -1,0 +1,21 @@
+<h1>Transaction History</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Amount</th>
+      <th>Country</th>
+      <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @transactions.each do |transaction| %>
+      <tr>
+        <td><%= transaction.amount %></td>
+        <td><%= transaction.country %></td>
+        <td><%= transaction.created_at.strftime('%Y-%m-%d %H:%M:%S') %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Transaction', new_transaction_path, class: 'btn btn-primary' %>

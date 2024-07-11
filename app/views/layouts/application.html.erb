@@ -25,10 +25,21 @@
           </li>
           <% if user_signed_in? %>
             <li class="nav-item">
+              <%= link_to 'Transactions', transactions_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Rewards', rewards_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Profile', user_path(current_user), class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
               <%= link_to 'Settings', edit_user_registration_path, class: 'nav-link' %>
             </li>
             <li class="nav-item">
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              <%= form_tag destroy_user_session_path, method: :delete, class: 'nav-link' do %>
+                <%= submit_tag 'Logout', class: 'btn btn-danger btn-sm' %>
+              <% end %>
             </li>
           <% else %>
             <li class="nav-item">

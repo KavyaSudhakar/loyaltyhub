@@ -1,0 +1,17 @@
+<h1>New Transaction</h1>
+<%= form_with model: @transaction, local: true do |form| %>
+  <div class="form-group">
+    <%= form.label :amount %>
+    <%= form.number_field :amount, step: 0.01, class: 'form-control', required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :country %>
+    <%= form.text_field :country, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit 'Submit Transaction', class: 'btn btn-primary', style: 'margin-right: 10px;' %>
+    <%= link_to 'Back to Transactions', transactions_path, class: 'btn btn-secondary' %>
+  </div>
+<% end %>
