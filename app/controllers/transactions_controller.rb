@@ -12,6 +12,7 @@ class TransactionsController < ApplicationController
     def create
       @transaction = current_user.transactions.new(transaction_params)
       if @transaction.save!
+        current_user.update_loyalty_tier
         redirect_to transactions_path, notice: 'Transaction created successfully.'
       else
         render :new
@@ -21,11 +22,7 @@ class TransactionsController < ApplicationController
     private
   
     def transaction_params
-      params.require(:transaction).permit(:amount, :transaction_date, :country)
-    end
-
-    def update_points
-        user.update_points
+      params.require(:transaction).permit(:amount, :country)
     end
 end
   

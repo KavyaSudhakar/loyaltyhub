@@ -20,6 +20,8 @@
 # Learn more: http://github.com/javan/whenever
 
 every '0 23 28-31 * *' do
-    runner "CheckMonthlyRewardsJob.perform_later" 
+    if Time.now.end_of_month == Time.now
+      runner "CheckMonthlyRewardsJob.perform_later"
+    end
 end
   

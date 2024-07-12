@@ -1,8 +1,6 @@
 class Transaction < ApplicationRecord
   belongs_to :user
 
-  scope :recent, -> { order(created_at: :desc) }
-
   before_save :calculate_points
   after_save :update_user_rewards
 
